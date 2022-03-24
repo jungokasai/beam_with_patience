@@ -38,6 +38,7 @@ Polish to English (PL-EN) with greedy decoding.
 ```bash
 python generate_mbart_n1.py  --lang pl --out-file mt/pl-en/output/newstest2020.pl-en.mbart.greedy.en --in-file mt/pl-en/src/newstest2020.pl-en.src.pl --beam 1 --model-dir <model_dir>
 ```
+Notice that the reference file `newstest2021.en-ja.ref.jsonl` is a `jsonl` file because some language pairs have multiple references per instance.
 
 ## Summarization
 Download and uncompress the pretrained, finetuned BART models:
@@ -59,11 +60,14 @@ python generate_bart_cnndm.py --out-file summ/cnndm/output/cnndm_vanilla_default
 
 ## Evaluate Results
 Lastly, we provide tools for evaluations: [COMET](https://aclanthology.org/2020.wmt-1.101/) for machine translation and [ROUGE](https://aclanthology.org/W04-1013/) for summarization.
+For example,
 ```bash
 cd eval/COMET/
+bash run.sh  ../../fairseq/mt/en-ja/src/newstest2021.en-ja.src.en ../../fairseq/mt/en-ja/output/newstest2021.en-ja.mbart.p2.ja ../../fairseq/mt/en-ja/tgt/newstest2021.en-ja.ref.jsonl ../../fairseq/mt/en-ja/output/newstest2021.en-ja.mbart.p2.ja.comet
 ```
 ```bash
 cd eval/ROUGE/
+bash run.sh  ../../fairseq/summ/cnndm/src/cnndm_src.txt ../../fairseq/summ/cnndm/output/cnndm_p0.5_default.txt  ../../fairseq/summ/cnndm/tgt/cnndm_refs.jsonl  ../../fairseq/summ/cnndm/output/cnndm_p0.5_default.rouge3 rouge3 
 ```
 
 ## Citation

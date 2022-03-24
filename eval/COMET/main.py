@@ -51,7 +51,7 @@ def score(src, hyp, refs, outfile):
             fout.write(str(score))
             fout.write('\n')
     results = pd.read_csv(outfile, header=None)
-    result = float(results.mean())
+    result = float(results.mean())*100
     print('Average: {}'.format(result))
 
 

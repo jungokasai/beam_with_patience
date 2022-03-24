@@ -1,2 +1,2 @@
 #!/bin/bash    
-python main.py --src $1 --hyp $2 --refs $3 --outfile $4
+python main.py --src $1 --hyp $2 --refs $3 --outfile $4 --rouge-type $5
