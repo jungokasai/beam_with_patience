@@ -5,7 +5,7 @@ We introduce the patience factor for the commonly-used implementation of beam de
 
 ## Installation
 We forked the [fairseq library](https://github.com/pytorch/fairseq) and added the [patience factor](https://github.com/jungokasai/beam_with_patience/blob/main/fairseq/fairseq/sequence_generator.py#L712).
-We incorporate this one-line change in any implementation of beam decoding, but here we provide our codebase.
+You can incorporate this **one-line change** in any implementation of beam decoding, but here we provide the codebase that we used for our paper.
 To run experiments, follow the [fairseq](https://github.com/pytorch/fairseq) instructions and run in this repository:
 ```bash
 cd fairseq
