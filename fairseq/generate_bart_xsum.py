@@ -13,10 +13,11 @@ def translate(model_dir,
               lenpen,
               beam,
               patience_factor,
+              vanilla,
               ):
                                                 
     model = BARTModel.from_pretrained('/home/acd13578qu/data/xsum/bart.large.xsum/', checkpoint_file='model.pt', data_name_or_path='/home/acd13578qu/data/xsum/bart.large.xsum/')
-    XSUM_KWARGS = dict(beam=beam, lenpen=lenpen, max_len_b=60, min_len=10, no_repeat_ngram_size=3, patience_factor=patience_factor)
+    XSUM_KWARGS = dict(beam=beam, lenpen=lenpen, max_len_b=60, min_len=10, no_repeat_ngram_size=3, patience_factor=patience_factor, vanilla=vanilla)
     start_id, end_id = get_line_ids(in_file, num_shards, shard_id)
     print(start_id, end_id)
     src_sents = []
@@ -70,6 +71,8 @@ if __name__ == '__main__':
     #CNN_KWARGS = dict(beam=beam, lenpen=lenpen, max_len_b=140, min_len=55, no_repeat_ngram_size=3, patience_factor=patience_factor)
     parser.add_argument('--patience-factor', default=1.0, type=float, metavar='N',
                         help='patience factor')
+    parser.add_argument('--vanilla', default=False, action='store_true',
+                        help='vanilla decoding')
     args = parser.parse_args()
     translate(args.model_dir,
               args.in_file,
@@ -81,4 +84,5 @@ if __name__ == '__main__':
               args.lenpen,
               args.beam,
               args.patience_factor,
+              args.vanilla,
               )

@@ -49,8 +49,12 @@ tar xvzf bart.large.xsum.tar.gz
 Here are some example commands.
 XSUM summarization with FCFS `p=0.5`.
 ```bash
+python generate_bart_xsum.py --out-file summ/xsum/output/xsum_p0.5_default.txt --in-file summ/xsum/src/xsum_src.txt --patience-factor 0.5 --model-dir <model_dir>
 ```
 CNNDM summarization with vanilla decoding.
+```bash
+python generate_bart_cnndm.py --out-file summ/cnndm/output/cnndm_vanilla_default.txt --in-file summ/cnndm/src/cnndm_src.txt --vanilla --model-dir <model_dir>
+```
 
 ## Evaluate Results
 
