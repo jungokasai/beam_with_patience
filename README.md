@@ -3,6 +3,15 @@
 ## Introduction
 We introduce the patience factor for the commonly-used implementation of beam decoding.
 
+## Installation
+We forked the [fairseq library](https://github.com/pytorch/fairseq) and added the [patience factor](https://github.com/jungokasai/beam_with_patience/blob/main/fairseq/fairseq/sequence_generator.py#L712).
+We incorporate this one-line change in any implementation of beam decoding, but here we provide our codebase.
+To run experiments, follow the [fairseq](https://github.com/pytorch/fairseq) instructions and run in this repository:
+```bash
+cd fairseq
+pip install --editable .
+```
+
 ## Machine Translation
 Download and uncompress the pretrained multilingual BART models from the [fairseq repository](https://github.com/pytorch/fairseq/tree/main/examples/multilingual#mbart50-models):
 ```bash
@@ -38,8 +47,12 @@ tar xvzf bart.large.cnn.tar.gz
 tar xvzf bart.large.xsum.tar.gz
 ```
 Here are some example commands.
+XSUM summarization with FCFS `p=0.5`.
+```bash
+```
+CNNDM summarization with vanilla decoding.
 
-## Evaluate
+## Evaluate Results
 
 ## Citation
 ```

@@ -1,6 +1,7 @@
 import argparse, json
 from comet import download_model, load_from_checkpoint
 import numpy as np
+import pandas as pd
 
 parser = argparse.ArgumentParser(allow_abbrev=False)
 parser.add_argument('--src', type=str, metavar='N',
@@ -49,6 +50,9 @@ def score(src, hyp, refs, outfile):
         for score in scores:
             fout.write(str(score))
             fout.write('\n')
+    results = pd.read_csv(outfile, header=None)
+    result = float(results.mean())
+    print('Average: {}'.format(result))
 
 
 if __name__ == '__main__':
