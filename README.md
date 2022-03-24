@@ -1,7 +1,8 @@
 # Beam with Controlled Patience
 
 ## Introduction
-We introduce the patience factor for the commonly-used implementation of beam decoding.
+We introduced the patience factor that generalizes the widely-used implementation of beam text decoding.
+The patience factor adds flexibility to the depth of search and improves performance on machine translation and summarization.
 
 ## Installation
 We forked the [fairseq library](https://github.com/pytorch/fairseq) and added the [patience factor](https://github.com/jungokasai/beam_with_patience/blob/main/fairseq/fairseq/sequence_generator.py#L712).
@@ -57,6 +58,13 @@ python generate_bart_cnndm.py --out-file summ/cnndm/output/cnndm_vanilla_default
 ```
 
 ## Evaluate Results
+Lastly, we provide tools for evaluations: [COMET](https://aclanthology.org/2020.wmt-1.101/) for machine translation and [ROUGE](https://aclanthology.org/W04-1013/) for summarization.
+```bash
+cd eval/COMET/
+```
+```bash
+cd eval/ROUGE/
+```
 
 ## Citation
 ```
