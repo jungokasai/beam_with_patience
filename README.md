@@ -72,11 +72,11 @@ bash run.sh  ../../fairseq/summ/cnndm/src/cnndm_src.txt ../../fairseq/summ/cnndm
 
 ## Citation
 ```
-@misc{kasai2022BeamPatience,
+@misc{kasai2022beampatience,
     title   = {Beam Decoding with Controlled Patience},
-    author  = {},
+    author  = {Jungo Kasai and Keisuke Sakaguchi and Ronan Le Bras and Dragomir Radev and Yejin Choi and Noah A. Smith},
     year    = {2022},
-    url     = {}, 
+    url     = {https://arxiv.org/abs/2204.05424}, 
 }
 ```
 <p align="center">
